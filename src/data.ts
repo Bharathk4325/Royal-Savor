@@ -1,0 +1,286 @@
+import { MenuItem, Table, Reservation } from './types';
+
+export const MENU_ITEMS: MenuItem[] = [
+  // South Indian
+  {
+    id: 'si-1',
+    name: 'Royal Masala Dosa',
+    description: 'Crispy golden rice-lentil crepe filled with aromatic spiced potato mash, served with signature sambar and fresh coconut chutneys.',
+    price: 550,
+    category: 'south-indian',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAQoiPo_PMFIT_EHM1JfJRSkt5YLtyNGtLwI5T53GfEFGHARyEzm5j0eT9_45ZN7gb_CHE7ElkXFCWgjNaE3IP_uJxueI0lX_FQeqGQzIcO6L4qKLZMloVYzY2OJRcSWeBmF7sfWdXpb39VYHdl--1hDGpQREO6g9B3W6Wthae50S7zN6JXAtAu8W6XZEPvUybU06XEKCgPFBRo1HRSw7-eQ_eSXZSs-X9yo3JdWOEvILb0yw5ZTtcGaIxpoSDar5OjC0MkuV_ZOnwH',
+    isFeatured: true,
+  },
+  {
+    id: 'si-2',
+    name: 'Mysore Masala Dosa',
+    description: 'Crispy crepe layered with spicy red garlic-chili chutney inside, filled with tempered potato filling.',
+    price: 600,
+    category: 'south-indian',
+    image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'si-3',
+    name: 'Rava Dosa',
+    description: 'Extremely thin, lacy crepe made from semolina and rice flour, flavored with green chilies, ginger, and crushed peppercorns.',
+    price: 450,
+    category: 'south-indian',
+    image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'si-4',
+    name: 'Paper Roast Dosa',
+    description: 'Gargantuan extra-thin and ultra-crisp paper crepe roasted with pure cow ghee. A visual and culinary classic.',
+    price: 650,
+    category: 'south-indian',
+    image: 'https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=600&auto=format&fit=crop&q=60',
+  },
+
+  // North Indian
+  {
+    id: 'ni-1',
+    name: 'Hyderabadi Dum Biryani',
+    description: 'Long-grain fragrant basmati rice layered with tender lamb, saffron, caramelized onions, and fresh mint, slow-cooked in a sealed clay pot.',
+    price: 1200,
+    category: 'north-indian',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBbzySjwefr9wphyedFUzRfSkWIs5Qx6QMbFXu0Ih9NtKxzjelM7TppM9o6IPZLnzvhSIvS5spf7DJ-9hnnipb17XaUzUXvim-v-WcJ0O3G1BLDoQ8B87xT5HlNXhd5_kUPh8nVnKKhanAAe51TTBwCf76wgbrjRtqsE__e_jZavkG9aNffmcmFTjFrB1yRLeMLLsOHYnv0Ez8ObUgM6QjaTeVPhew6sGO4QuGY4RZ-QBWtOC998N3TFw_xRd5kV_XALcYLYR-4MGOD',
+    isFeatured: true,
+  },
+  {
+    id: 'ni-2',
+    name: 'Tandoori Butter Chicken',
+    description: 'Smoked charcoal-grilled chicken tikka simmered in a velvety tomato, honey, cream, and cashew nut gravy.',
+    price: 950,
+    category: 'north-indian',
+    image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'ni-3',
+    name: 'Dal Makhani',
+    description: 'Classic black lentils and red kidney beans slow-cooked overnight on charcoal with butter and fresh cream, infused with ginger-garlic.',
+    price: 700,
+    category: 'north-indian',
+    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'ni-4',
+    name: 'Paneer Tikka Masala',
+    description: 'Clay-oven charred cottage cheese cubes folded into a robust spiced onion-tomato gravy with bell peppers.',
+    price: 850,
+    category: 'north-indian',
+    image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&auto=format&fit=crop&q=60',
+  },
+
+  // Pizza
+  {
+    id: 'pz-1',
+    name: 'Margherita Royale',
+    description: 'Sourdough crust, San Marzano tomato base, artisanal fresh buffalo mozzarella, fresh basil leaves, and an exquisite drizzle of white truffle oil.',
+    price: 1100,
+    category: 'pizza',
+    image: 'https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'pz-2',
+    name: 'Pepperoni Supremo',
+    description: 'Rich tomato base, spiced beef pepperoni slices, dynamic shredded mozzarella, and fresh oregano over our slow-fermented crust.',
+    price: 1350,
+    category: 'pizza',
+    image: 'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'pz-3',
+    name: 'Truffle Wild Mushroom',
+    description: 'Bianca white base, wild forest mushrooms, roasted garlic cloves, creamy fontina, fresh rosemary, and rich truffle essence.',
+    price: 1400,
+    category: 'pizza',
+    image: 'https://images.unsplash.com/photo-1544982503-9f984c14501a?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'pz-4',
+    name: 'Quattro Formaggi',
+    description: 'A deeply indulgent four-cheese blend of imported Gorgonzola, aged Parmesan, sweet Mozzarella, and creamy Fontina.',
+    price: 1250,
+    category: 'pizza',
+    image: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=600&auto=format&fit=crop&q=60',
+  },
+
+  // Ice Cream
+  {
+    id: 'ic-1',
+    name: 'Madagascar Vanilla Bean',
+    description: 'Exquisite, rich, double-churned cream infused with premium direct-trade vanilla bean caviar from Madagascar.',
+    price: 400,
+    category: 'ice-cream',
+    image: 'https://images.unsplash.com/photo-1570145820259-b5b80c5c8bd6?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'ic-2',
+    name: 'Belgian Dark Chocolate',
+    description: 'Intense 70% single-origin Belgian dark chocolate gelato, folded with premium cocoa nibs for a satisfying crunch.',
+    price: 450,
+    category: 'ice-cream',
+    image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'ic-3',
+    name: 'Sicily Pistachio Gelato',
+    description: 'Slow-churned Sicilian style gelato made with 100% pure roasted Bronte pistachios, boasting an authentic green hue and nutty aroma.',
+    price: 500,
+    category: 'ice-cream',
+    image: 'https://images.unsplash.com/photo-1580915411954-282cb1bc3413?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'ic-4',
+    name: 'Salted Caramel Crunch',
+    description: 'Deep amber caramel ice cream blended with fine Breton sea salt and homemade crispy honeycomb bits.',
+    price: 450,
+    category: 'ice-cream',
+    image: 'https://images.unsplash.com/photo-1560008511-11c63416e52d?w=600&auto=format&fit=crop&q=60',
+  },
+
+  // Desserts
+  {
+    id: 'ds-1',
+    name: 'Classic Espresso Tiramisu',
+    description: 'Airy ladyfinger biscuits soaked in single-origin espresso and dark rum, layered with whipped organic mascarpone and dusted with cocoa.',
+    price: 750,
+    category: 'desserts',
+    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'ds-2',
+    name: 'Tahitian Vanilla Crème Brûlée',
+    description: 'Rich, velvet-smooth egg custard flecked with vanilla seeds, under a perfectly hand-torched, glass-like caramelized sugar crust.',
+    price: 650,
+    category: 'desserts',
+    image: 'https://images.unsplash.com/photo-1470124114517-0f247902427a?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'ds-3',
+    name: 'Guayaquil Molten Lava Cake',
+    description: 'Warm, individual cake baked with 72% Ecuadorian chocolate, featuring a liquid core that flows upon slicing, served with vanilla bean ice cream.',
+    price: 800,
+    category: 'desserts',
+    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'ds-4',
+    name: 'Gulab Jamun Cheesecake',
+    description: 'A stellar fusion masterpiece. Saffron-cardamom flavored New York style cheesecake baked with soft syrup-soaked gulab jamuns inside.',
+    price: 900,
+    category: 'desserts',
+    image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&auto=format&fit=crop&q=60',
+  },
+
+  // Beverages
+  {
+    id: 'bv-1',
+    name: 'Signature Royal Mocktail',
+    description: 'Muddled garden-fresh mint, cold-pressed pineapple juice, lime, house bitters, ginger beer, and a subtle smoked rosemary finish.',
+    price: 350,
+    category: 'beverages',
+    image: 'https://images.unsplash.com/photo-1536935338788-846bb9981813?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'bv-2',
+    name: 'Artisan Pour-Over Coffee',
+    description: 'Freshly roasted, single-origin Araku Valley coffee beans brewed slowly with a V60 filter, capturing subtle fruity and nutty notes.',
+    price: 300,
+    category: 'beverages',
+    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'bv-3',
+    name: 'Zesty Masala Chai',
+    description: 'Assam black tea leaves brewed with hot milk and hand-pounded green cardamom, cloves, cinnamon, ginger, and black pepper.',
+    price: 250,
+    category: 'beverages',
+    image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&auto=format&fit=crop&q=60',
+  },
+  {
+    id: 'bv-4',
+    name: 'Sparkling Fresh Lime Soda',
+    description: 'Effervescent double-filtered soda, freshly squeezed key lime juice, and your choice of wild sugar syrup or fine Himalayan salt.',
+    price: 200,
+    category: 'beverages',
+    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&auto=format&fit=crop&q=60',
+  }
+];
+
+export const INITIAL_TABLES: Table[] = [
+  { id: 'T1', capacity: 2, location: 'Main Dining Room', status: 'available', top: '25%', left: '15%', type: 'circle' },
+  { id: 'T2', capacity: 4, location: 'Main Dining Room', status: 'reserved', top: '25%', left: '42%', type: 'square' },
+  { id: 'V1', capacity: 6, location: 'Main Dining Room (VIP Booth)', status: 'vip', top: '55%', left: '22%', type: 'rect' },
+  { id: 'F1', capacity: 8, location: 'Main Dining Room', status: 'cleaning', top: '65%', left: '62%', type: 'circle' },
+  { id: 'T5', capacity: 4, location: 'Main Dining Room', status: 'available', top: '80%', left: '33%', type: 'square' },
+  { id: 'P1', capacity: 2, location: 'Terrace (AC)', status: 'available', top: '22%', left: '88%', type: 'circle' },
+  { id: 'P2', capacity: 2, location: 'Terrace (AC)', status: 'available', top: '55%', left: '88%', type: 'circle' }
+];
+
+export const INITIAL_RESERVATIONS: Reservation[] = [
+  {
+    id: 'RS-8821',
+    name: 'Alexander Sterling',
+    email: 'alexander@sterling.com',
+    phone: '+91 99000 12345',
+    guests: 2,
+    date: '2026-06-26',
+    time: '20:00',
+    seating: 'indoor',
+    environment: 'ac',
+    occasion: 'anniversary',
+    requests: 'Window table with garden view if possible.',
+    tableId: 'T1',
+    status: 'confirmed',
+    createdAt: '2026-06-25T14:22:00.000Z'
+  },
+  {
+    id: 'RS-7412',
+    name: 'Eleanor Vance',
+    email: 'eleanor.v@gourmet.co',
+    phone: '+91 98860 54321',
+    guests: 4,
+    date: '2026-06-26',
+    time: '12:30',
+    seating: 'indoor',
+    environment: 'ac',
+    occasion: 'business',
+    requests: 'Quiet VIP space. Client meeting.',
+    tableId: 'T2',
+    status: 'confirmed',
+    createdAt: '2026-06-24T09:15:00.000Z'
+  },
+  {
+    id: 'RS-9125',
+    name: 'Arthur Pendelton',
+    email: 'arthur.p@heritage.org',
+    phone: '+91 91122 33445',
+    guests: 2,
+    date: '2026-06-26',
+    time: '13:00',
+    seating: 'outdoor',
+    environment: 'non-ac',
+    occasion: 'none',
+    requests: 'First time visiting, looking forward to the dosas!',
+    tableId: 'P1',
+    status: 'confirmed',
+    createdAt: '2026-06-25T18:40:00.000Z'
+  },
+  {
+    id: 'RS-3367',
+    name: 'Sofia Rossi',
+    email: 'sofia.rossi@milano.it',
+    phone: '+91 95555 66778',
+    guests: 6,
+    date: '2026-06-26',
+    time: '13:15',
+    seating: 'indoor',
+    environment: 'ac',
+    occasion: 'birthday',
+    requests: 'Need space for cake. Thank you!',
+    tableId: 'V1',
+    status: 'confirmed',
+    createdAt: '2026-06-25T11:05:00.000Z'
+  }
+];

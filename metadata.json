@@ -1,0 +1,6 @@
+{
+  "name": "Royal Savor",
+  "description": "An Immersive Luxury Culinary Experience with Interactive Table Bookings",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
